@@ -7,6 +7,17 @@
   font-family: "Quicksand";
   color: #333;
 }
+
+.home button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 .navbar {
   padding: 20px;
   display: flex;
