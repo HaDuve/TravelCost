@@ -10,7 +10,7 @@ const Costlist = ({ costs, title }) => {
                 <div className="cost-preview" key={cost.id}>
                     <Link to={`/costs/${cost.id}`}>
                         <h2> {cost.description} </h2>
-                        <p>{cost.category}</p>
+                        <p>{cost.category[0].toUpperCase() + cost.category.substring(1)}</p>
                         <p>Bought in {cost.place}, {cost.country} </p>
                         <p>Bought by {cost.whopaid} for {cost.price}€ </p>
                     </Link>                    
