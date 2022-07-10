@@ -8,8 +8,15 @@
   color: #333;
 }
 
+.home {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #000000;
+}
 .home button {
   background: #f1356d;
+  display: block;
+  width: 100%;
   color: #fff;
   border: 0;
   padding: 10px;

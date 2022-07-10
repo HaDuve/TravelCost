@@ -33,5 +33,14 @@
       "oweperc": 50,
       "id": 3
     }
+  ],
+  "traveller": [
+    {
+      "name": "default_name1",
+      "budget": 0,
+      "daily": 0,
+      "monthly": 0,
+      "id": 1
+    }
   ]
 }

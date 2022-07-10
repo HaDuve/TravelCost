@@ -1,17 +1,35 @@
 import useFetch from './useFetch'
-import Costlist from './Costlist'
+import InitialQuestions from './InitialQuestions'
+import { useState } from 'react';
+
 
 import { Link } from 'react-router-dom';
 
-const Home = () => {    
-    return ( 
+const Home = () => {
+    const { data: traveller } = useFetch('http://localhost:8000/traveller/1');
+
+    return (
+        
         <div className="home">
-            <h2>
-                <Link to="/Overview">Overview of the Travel Costs</Link>               
-            </h2>
-            <h2>
-                <Link to="/Inspect">Inspect costs for a single month or country</Link>
-            </h2>
+            {traveller && (traveller.name === "default_name")&&<InitialQuestions></InitialQuestions>}
+            
+            
+            {traveller && !(traveller.name === "default_name") &&
+                <h2>Welcome, {traveller.name}!</h2>
+            }
+            {traveller && !(traveller.name === "default_name") &&
+                <p>Here, you can find a overview and specific information</p>
+            }
+            {traveller && !(traveller.name === "default_name") &&
+                <div>
+                    <button><Link to="/Overview">Overview of the Travel Costs</Link></button>
+                </div>
+            }
+            {traveller && !(traveller.name === "default_name") &&
+            <div>
+                <button><Link to="/Inspect">Inspect costs for a single month or country</Link></button>
+                </div>
+            }
         </div>        
         );
 }
