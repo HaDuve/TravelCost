@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const InitialQuestions = () => {
+const InitialQuestions = ({traveller}) => {
     const [t_name, setName] = useState('');
     const [t_budget, setBudget] = useState('');
     const [t_daily, setDaily] = useState('');
@@ -9,6 +9,8 @@ const InitialQuestions = () => {
 
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
+
+    console.log(traveller.name);
 
 
     const handleSubmit = (e) => {

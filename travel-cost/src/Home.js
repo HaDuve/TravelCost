@@ -12,7 +12,7 @@ const Home = () => {
         
         <div className="home">
             {/* {traveller && (traveller.name === "default_name")&&<InitialQuestions></InitialQuestions>} */}
-            <InitialQuestions></InitialQuestions>
+            <InitialQuestions traveller={traveller}></InitialQuestions>
             
             {traveller && !(traveller.name === "default_name") &&
                 <h2>Welcome, {traveller.name}!</h2>
