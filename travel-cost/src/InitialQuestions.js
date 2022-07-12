@@ -15,18 +15,22 @@ const InitialQuestions = () => {
         e.preventDefault();
         const blog = { t_name, t_budget, t_daily, t_monthly };
         setIsPending(true);
-
-
-    fetch("http://localhost:8000/traveller", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(blog)
-    }).then(() => {
-        console.log("Created")
-        setIsPending(false);
-        history.push('/');
-    })
-    }
+        
+        // first delete default traveller, then add new name
+        fetch("http://localhost:8000/traveller/1", { 
+            method: "DELETE",
+        }).then(() => {            
+            fetch("http://localhost:8000/traveller", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(blog)
+            }).then(() => {
+                console.log("New traveller Created")
+                setIsPending(false);
+                history.push('/');
+            })
+        })
+        }
 
     return (
         <div className="create">
