@@ -10,7 +10,7 @@ const InitialQuestions = ({traveller}) => {
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
-    console.log(traveller.name);
+    if (traveller) console.log(traveller.name);
 
 
     const handleSubmit = (e) => {

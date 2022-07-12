@@ -11,8 +11,8 @@ const Home = () => {
     return (
         
         <div className="home">
-            {/* {traveller && (traveller.name === "default_name")&&<InitialQuestions></InitialQuestions>} */}
-            <InitialQuestions traveller={traveller}></InitialQuestions>
+            {/* {traveller && (traveller.name === "default_name")&&<InitialQuestions traveller={traveller}></InitialQuestions>} */}
+            <InitialQuestions ></InitialQuestions>
             
             {traveller && !(traveller.name === "default_name") &&
                 <h2>Welcome, {traveller.name}!</h2>
