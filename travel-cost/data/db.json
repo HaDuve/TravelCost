@@ -36,11 +36,18 @@
   ],
   "traveller": [
     {
-      "name": "default_name",
-      "budget": 0,
-      "daily": 0,
-      "monthly": 0,
+      "name": "Hannes",
+      "budget": "10000",
+      "daily": "20",
+      "monthly": 600,
       "id": 1
+    },
+    {
+      "name": "Tina",
+      "budget": "10000",
+      "daily": "20",
+      "monthly": 600,
+      "id": 2
     }
   ]
 }

@@ -2,36 +2,42 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const InitialQuestions = ({traveller}) => {
-    const [t_name, setName] = useState('');
-    const [t_budget, setBudget] = useState('');
-    const [t_daily, setDaily] = useState('');
-    const [t_monthly, setMonthly] = useState('');
+    const [name, setName] = useState('');
+    const [budget, setBudget] = useState('');
+    const [daily, setDaily] = useState('');
+    const [monthly, setMonthly] = useState('');
 
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
-    if (traveller) console.log(traveller.name);
-
+    const createNewTraveller = (blog) => {
+        fetch("http://localhost:8000/traveller", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(blog)
+                }).then(() => {
+                    console.log("New traveller Created")
+                    setIsPending(false);
+                    history.push('/');
+                })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const blog = { t_name, t_budget, t_daily, t_monthly };
+        const blog = { name, budget, daily, monthly };
         setIsPending(true);
         
-        // first delete default traveller, then add new name
-        fetch("http://localhost:8000/traveller/1", { 
-            method: "DELETE",
-        }).then(() => {            
-            fetch("http://localhost:8000/traveller", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(blog)
+        if (traveller && traveller.name === "default") {
+            // first delete default traveller, then add new name
+            fetch("http://localhost:8000/traveller/1", {
+                method: "DELETE",
             }).then(() => {
-                console.log("New traveller Created")
-                setIsPending(false);
-                history.push('/');
+                createNewTraveller(blog);
             })
-        })
+        } else { 
+            createNewTraveller(blog);
+        }
+        
         }
 
     return (
@@ -42,32 +48,43 @@ const InitialQuestions = ({traveller}) => {
                 <label>Your Name:</label>
                 <input
                     type="text"
-                    value={t_name}
+                    value={name}
                     required
                     onChange={(e) => setName(e.target.value)}
                 />
 
-                <label>Your total travel budget:</label>
+                <label>Your total travel budget in €:</label>
                 <input
                     type="number"
                     required
-                    value={t_budget}
+                    value={budget}
+                    placeholder=""
                     onChange={(e) => setBudget(e.target.value)}
                 />
 
-                <label>Your daily travel budget:</label>
+                <label>Your daily travel budget in €:</label>
                 <input
                     type="number"
-                    value={t_daily}
+                    value={daily}
                     required
-                    onChange={(e) => setDaily(e.target.value)}
+                    placeholder=""
+                    onChange={(e) => {
+                        setDaily(e.target.value);
+                        setMonthly(e.target.value  * 30);
+                    }
+                    }
                 />
-                <label>Your monthly travel budget:</label>
+                <label>Your monthly travel budget in €:</label>
                 <input
                     type="number"
-                    value={t_monthly}
+                    value={monthly}
                     required
-                    onChange={(e) => setMonthly(e.target.value)}
+                    placeholder=""
+                    onChange={(e) => {
+                        setMonthly(e.target.value);
+                        setDaily(Math.round(((e.target.value / 30) + Number.EPSILON) * 100) / 100);
+                    }
+                    }
                 />
                 {!isPending && <button>Add Traveller</button>}
                 {isPending && <button disabled>Adding Traveller...</button>}

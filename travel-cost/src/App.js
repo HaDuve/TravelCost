@@ -3,6 +3,7 @@ import Home from './Home'
 import Create from './CreateCost'
 import CostDetails from './CostDetails'
 import Overview from './Overview'
+import InitialQuestions from './InitialQuestions'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from './NotFound';
 
@@ -19,12 +20,15 @@ function App() {
             <Route path="/Overview">
               <Overview />            
             </Route> 
-            <Route path="/create">
+            <Route path="/Add-Cost">
               <Create />            
             </Route> 
             <Route path="/costs/:id">
               <CostDetails></CostDetails>
             </Route>
+            <Route path="/New-Traveller">
+              <InitialQuestions />            
+            </Route> 
             <Route>
               <NotFound></NotFound>
             </Route>

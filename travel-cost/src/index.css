@@ -7,20 +7,17 @@
   font-family: "Quicksand";
   color: #333;
 }
-
 .home {
-  padding: 10px 16px;
-  margin: 20px 0;
   border-bottom: 1px solid #000000;
 }
 .home button {
   background: #f1356d;
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: 80%;
   color: #fff;
   border: 0;
   padding: 10px;
-  margin: 10px;
+  margin: 30px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -28,7 +25,7 @@
 .navbar {
   padding: 20px;
   display: flex;
-  align-items: center;
+  align-items: left;
   max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #775f5f;
