@@ -7,7 +7,7 @@
       "country": "Sri Lanka",
       "place": "Colombo",
       "price": 12.3,
-      "whopaid": "H",
+      "whopaid": "Hannes",
       "oweperc": 50,
       "id": 1
     },
@@ -18,7 +18,7 @@
       "country": "Sri Lanka",
       "place": "Colombo",
       "price": 3,
-      "whopaid": "T",
+      "whopaid": "Tina",
       "oweperc": 50,
       "id": 2
     },
@@ -29,7 +29,7 @@
       "country": "Indonesia",
       "place": "Ubud",
       "price": "1.2",
-      "whopaid": "H",
+      "whopaid": "Hannes",
       "oweperc": 50,
       "id": 3
     }

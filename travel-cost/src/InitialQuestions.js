@@ -42,7 +42,7 @@ const InitialQuestions = ({traveller}) => {
 
     return (
         <div className="create">
-            <h2>Looks like you are new here!</h2>
+            <h2>Add a new Name to your Travels!</h2>
             <form onSubmit={handleSubmit}>
 
                 <label>Your Name:</label>

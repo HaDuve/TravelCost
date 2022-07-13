@@ -1,5 +1,5 @@
 import useFetch from './useFetch'
-import Costlist from './Costlist'
+import Costlist from './CostList'
 
 const Overview = () => {
 
@@ -9,7 +9,7 @@ const Overview = () => {
         <div className="home">
             {error && <div> {error}</div>}
             {isPending && <div>Loading...</div>}
-            {costs && <Costlist costs={costs} title={"All costs"} ></Costlist>}
+            <h2>Summary soon...</h2>
         </div>
      );
 }

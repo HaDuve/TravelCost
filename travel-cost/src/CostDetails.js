@@ -22,14 +22,14 @@ const CostDetails = () => {
                 <article>
                     <h2>{cost.description}</h2>
                     <p>Bought by {cost.whopaid}</p>
-                    <div>{cost.date}</div>
-                    <div>{cost.category}</div>
-                    <div>{cost.country}</div>
-                    <div>{cost.place}</div>
-                    <div>{cost.price}</div>
-                    <div>{cost.whopaid}</div>
-                    <div>{cost.oweperc}</div>
-                    <button onClick={handleClick}>delete</button>
+                    <div>Date: {cost.date}</div>
+                    <div>Category: {cost.category[0].toUpperCase() + cost.category.substring(1)}</div>
+                    <div>Country: {cost.country}</div>
+                    <div>Place: {cost.place}</div>
+                    <div>Price: {cost.price}€</div>
+                    <div>Who paid: {cost.whopaid}</div>
+                    <div>How much is owed: {cost.oweperc}%</div>
+                    <button onClick={handleClick}>Delete</button>
                 </article>
             )}
         </div>
