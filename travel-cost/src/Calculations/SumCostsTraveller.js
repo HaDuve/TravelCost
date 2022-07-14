@@ -1,4 +1,4 @@
-import useFetch from "./useFetch";
+import useFetch from "../useFetch";
 import { useState } from "react";
 import React from 'react';
 
