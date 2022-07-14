@@ -8,6 +8,7 @@ import InitialQuestions from './InitialQuestions'
 import Inspect from './Inspect'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from './NotFound';
+import React from 'react';
 
 function App() {
   return (

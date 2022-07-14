@@ -32,6 +32,17 @@
       "whopaid": "Hannes",
       "oweperc": 50,
       "id": 3
+    },
+    {
+      "date": "2022-07-14",
+      "description": "Insurance",
+      "category": "other",
+      "country": "Germany",
+      "place": "Freiburg",
+      "price": "2000",
+      "whopaid": "H",
+      "oweperc": "0",
+      "id": 4
     }
   ],
   "traveller": [

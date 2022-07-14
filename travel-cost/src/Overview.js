@@ -1,5 +1,6 @@
 import useFetch from './useFetch'
-import Costlist from './CostList'
+import SumTotalBudget from './Calculations/SumTotalBudget'
+import React from 'react';
 
 const Overview = () => {
 
@@ -9,7 +10,8 @@ const Overview = () => {
         <div className="home">
             {error && <div> {error}</div>}
             {isPending && <div>Loading...</div>}
-            <h2>Summary soon...</h2>
+            <h2>Summary</h2>
+            <SumTotalBudget></SumTotalBudget>
         </div>
      );
 }

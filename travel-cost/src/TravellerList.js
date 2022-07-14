@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import SumCostsTraveller  from './SumCostsTraveller';
+import SumCostsTraveller from './SumCostsTraveller';
+import React from 'react';
 
 const TravellerList = ({ travellers, title }) => {
 

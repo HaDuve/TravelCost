@@ -1,5 +1,6 @@
 import useFetch from "./useFetch";
 import { useState } from "react";
+import React from 'react';
 
 const SumCostsTraveller = (traveller) => {
     const [sumPerson, setSumPerson] = useState(0);

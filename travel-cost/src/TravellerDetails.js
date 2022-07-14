@@ -1,6 +1,7 @@
 import { useHistory, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 import { useState } from "react";
+import React from 'react';
 
 const TravellerDetails = () => {
     const { id } = useParams();
