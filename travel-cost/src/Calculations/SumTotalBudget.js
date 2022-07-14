@@ -28,24 +28,39 @@ const SumTotalBudget = () => {
 
     return ( 
         <div>
-            {t_isPending || c_isPending && <div> Loading...</div>}
-            {!c_isPending && <div>Sum of Budget: {sumBudget}€</div>}
-            {!t_isPending && <div>Sum of spent money: {sumCosts}€</div>}
-            {!c_isPending && !t_isPending && <div>Total money left to spend: {sumBudget - sumCosts}€</div>}
+            <h2>Budget Summary</h2>
+            <div class="grid">
+
+                <div class="item">
+                    {t_isPending || c_isPending && <div> Loading...</div>}
+                    {!c_isPending && <div>Sum of Budget: {sumBudget}€</div>}
+                    {!t_isPending && <div>Sum of spent money: {sumCosts}€</div>}
+                    {!c_isPending && !t_isPending && <div>Total money left to spend: {sumBudget - sumCosts}€</div>}
+                </div>
+
+                <div class="item">
+                    <PieChart
+                        data={[
+                            {
+                                title: 'Total money left to spend: '
+                                    + (sumBudget - sumCosts).toString()
+                                    + "€",
+                                value: sumBudget - sumCosts,
+                                color: '#D9F8C4'
+                            },
+                        ]}
+                        totalValue={sumBudget}
+                        label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
+                        labelPosition={0}
+                        style={{height: '50%'}}
+                        animated={true}
+                        animationDuration={5000}
+                        radius={50}
+                        lineWidth={30} 
+                    />
+                </div>
+            </div>
             
-            <PieChart
-                data={[
-                    { title: 'Total money left to spend:', value: sumBudget - sumCosts, color: '#D9F8C4' },
-                ]}
-                totalValue={sumBudget}
-                label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
-                labelPosition={0}
-                viewBoxSize={[200, 200]}
-                animated={true}
-                radius={25}
-                paddingAngle={5}
-                lineWidth={15} rounded 
-            />
         </div>        
      );
 }

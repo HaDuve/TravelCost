@@ -10,7 +10,6 @@ const Overview = () => {
         <div className="home">
             {error && <div> {error}</div>}
             {isPending && <div>Loading...</div>}
-            <h2>Summary</h2>
             <SumTotalBudget></SumTotalBudget>
         </div>
      );
