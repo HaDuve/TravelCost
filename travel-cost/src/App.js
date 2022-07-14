@@ -1,14 +1,15 @@
 import Navbar from './Navbar'
 import Home from './Home'
-import Create from './CreateCost'
+import Create from './Forms/CreateCost'
 import CostDetails from './CostDetails'
 import TravellerDetails from './TravellerDetails'
 import Overview from './Overview'
-import InitialQuestions from './InitialQuestions'
+import InitialQuestions from './Forms/CreateTraveller'
 import Inspect from './Inspect'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from './NotFound';
 import React from 'react';
+import SumTotalBudget from './Calculations/SumTotalBudget';
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <Route path="/New-Traveller">
               <InitialQuestions />            
+            </Route> 
+            <Route path="/SumTotalBudget">
+              <SumTotalBudget />            
             </Route> 
             <Route path="/Inspect">
               <Inspect></Inspect>

@@ -1,6 +1,7 @@
 import useFetch from './useFetch'
 import SumTotalBudget from './Calculations/SumTotalBudget'
 import React from 'react';
+import SumCostsCountry from './Calculations/SumCostsCountry';
 
 const Overview = () => {
 
@@ -11,6 +12,7 @@ const Overview = () => {
             {error && <div> {error}</div>}
             {isPending && <div>Loading...</div>}
             <SumTotalBudget></SumTotalBudget>
+            <SumCostsCountry></SumCostsCountry>
         </div>
      );
 }

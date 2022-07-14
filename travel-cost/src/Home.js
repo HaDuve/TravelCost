@@ -1,6 +1,5 @@
 import useFetch from './useFetch'
-import InitialQuestions from './InitialQuestions'
-import TravellerList from './TravellerList'
+import InitialQuestions from './Forms/CreateTraveller'
 import React from 'react';
 
 
