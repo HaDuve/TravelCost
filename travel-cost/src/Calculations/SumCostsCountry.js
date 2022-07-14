@@ -4,28 +4,34 @@ import React from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 
 
-const SumCostsCountry = () => {
-    const [sumCosts, setSumCosts] = useState(0);
-    const { data: costs, c_isPending } = useFetch('http://localhost:8000/costs/');
-    
-    if (costs) {
-        var r = costs.reduce(function(pv, cv) {
-            if ( pv[cv.country] ) {
-                pv[cv.country] += cv.price;
-            } else {
-                pv[cv.country] = cv.price;
-            }
-            return pv;
-        }, {});
-        
-        console.log(r);
+const SumCostsCountry = ({ costs }) => {
+    var holder = {};
+    costs.forEach(function (d) {
+        if (holder.hasOwnProperty(d.country)) {
+            holder[d.country] = holder[d.country] + d.price;
+        } else {
+            holder[d.country] = d.price;
+        }
+    });
+
+    var summedCosts = [];
+
+    for (var prop in holder) {
+        summedCosts.push({ country: prop, price: holder[prop] });
     }
-    return ( 
+
+    return (
         <div>
-            {!c_isPending && <div>{ }</div>}
-            
-        </div>     
-     );
+            <h2>Country Summary</h2>
+            {summedCosts.map((cost) => (
+                <div className="cost-preview">
+                        <h2>{cost.country}</h2>
+                        <p>Total money spent here:  {cost.price} €</p>
+                </div>
+            )) }
+        </div>
+    );
 }
+
  
 export default SumCostsCountry;

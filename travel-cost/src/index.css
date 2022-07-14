@@ -33,8 +33,12 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 12px;
 }
+.grid:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
 
 .item {
+  margin : 10px;
   min-height: 200px;
 }
 

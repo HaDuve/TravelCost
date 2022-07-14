@@ -11,8 +11,12 @@ const Overview = () => {
         <div className="home">
             {error && <div> {error}</div>}
             {isPending && <div>Loading...</div>}
-            <SumTotalBudget></SumTotalBudget>
-            <SumCostsCountry></SumCostsCountry>
+            {costs &&
+                <SumTotalBudget costs={costs}></SumTotalBudget>
+            }
+            {costs &&
+                <SumCostsCountry costs={costs}></SumCostsCountry>
+            }
         </div>
      );
 }

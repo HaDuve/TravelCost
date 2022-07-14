@@ -4,11 +4,10 @@ import React from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 
 
-const SumTotalBudget = () => {
+const SumTotalBudget = ({ costs }) => {
     const [sumBudget, setSumBudget] = useState(0);
     const [sumCosts, setSumCosts] = useState(0);
     const { data: travellers, t_isPending } = useFetch('http://localhost:8000/traveller/');
-    const { data: costs, c_isPending } = useFetch('http://localhost:8000/costs/');
 
     let tempSumBudget = 0;
     if (travellers && !t_isPending) {
@@ -19,12 +18,11 @@ const SumTotalBudget = () => {
     }
 
     let tempSumCosts = 0;
-    if (costs && !c_isPending) {
-        for (let i = 0; i < costs.length; i++) {
-            tempSumCosts += JSON.parse(costs[i].price); 
-        }
-        if(tempSumCosts !== sumCosts) setSumCosts(tempSumCosts);
+    for (let i = 0; i < costs.length; i++) {
+        tempSumCosts += JSON.parse(costs[i].price); 
     }
+    if(tempSumCosts !== sumCosts) setSumCosts(tempSumCosts);
+
 
     return ( 
         <div>
@@ -32,10 +30,10 @@ const SumTotalBudget = () => {
             <div class="grid">
 
                 <div class="item">
-                    {t_isPending || c_isPending && <div> Loading...</div>}
-                    {!c_isPending && <div>Sum of Budget: {sumBudget}€</div>}
+                    {t_isPending && <div> Loading...</div>}
+                    {<div>Sum of Budget: {sumBudget}€</div>}
                     {!t_isPending && <div>Sum of spent money: {sumCosts}€</div>}
-                    {!c_isPending && !t_isPending && <div>Total money left to spend: {sumBudget - sumCosts}€</div>}
+                    {!t_isPending && <div>Total money left to spend: {sumBudget - sumCosts}€</div>}
                 </div>
 
                 <div class="item">
@@ -53,8 +51,6 @@ const SumTotalBudget = () => {
                         label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
                         labelPosition={0}
                         style={{height: '50%'}}
-                        animated={true}
-                        animationDuration={5000}
                         radius={50}
                         lineWidth={30} 
                     />
